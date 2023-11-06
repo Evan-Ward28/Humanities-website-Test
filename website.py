@@ -3,12 +3,14 @@ from flask import Flask, render_template_string
 import folium
 import csv
 from folium.plugins import MarkerCluster
+import os
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
     #creates the map
     filename = "EastTennesseeTest.csv"
+    
     keys = ('Name','Age','Race','Gender','Coordinates','Occupation','Crime','Method','Death','County','Source1','Source2','Source3')
     records = []
     #read the data from the CSV file into our Python app
@@ -118,4 +120,4 @@ def hello():
 
     """, header=header, body_html=body_html, script=script)
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=50100,debug=True)
+    app.run(host="0.0.0.0", port=80800,debug=True)
