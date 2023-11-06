@@ -99,7 +99,7 @@ def hello():
     #Java script render
     script =  mapObj.get_root().script.render()
     
-    
+
     #Website render
     return render_template_string( """
     <!DOCTYPE html>
