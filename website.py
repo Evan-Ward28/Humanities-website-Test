@@ -42,8 +42,7 @@ def hello():
     valid_records = [record for record in records if record.get('latitude') is not None and record.get('longitude') is not None]
 
     # Create a MarkerCluster group
-    marker_cluster = MarkerCluster(name="Points of Cases").add_to(map)
-
+    marker_cluster = MarkerCluster().add_to(mapObj)
 
     # Add markers to the MarkerCluster group
     for record in valid_records:
