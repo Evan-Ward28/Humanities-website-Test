@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
     #creates the map
-    filename = "EastTennesseeTest.csv"
+    filename = "MasterMap.csv"
     
     keys = ('Name','Age','Race','Gender','Coordinates','Occupation','Crime','Method','Death','County','Source1','Source2','Source3')
     records = []
@@ -42,7 +42,8 @@ def hello():
     valid_records = [record for record in records if record.get('latitude') is not None and record.get('longitude') is not None]
 
     # Create a MarkerCluster group
-    marker_cluster = MarkerCluster().add_to(mapObj)
+    marker_cluster = MarkerCluster(name="Points of Cases").add_to(map)
+
 
     # Add markers to the MarkerCluster group
     for record in valid_records:
@@ -109,8 +110,10 @@ def hello():
         </head>
         <body>
             <h3>State of Tennessee Death Penalty Map </h3>
-            
-            {{body_html|safe}} <!--Map Render-->
+            <!--Map Size -->
+            <div id="map-container" style="width: 80%; height: 800px; margin: 20px auto;">
+            {{body_html|safe}} <!-- Map Render -->
+             </div>
             
             <script>
             {{script|safe}}
