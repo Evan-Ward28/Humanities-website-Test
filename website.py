@@ -102,23 +102,36 @@ def hello():
 
     #Website render
     return render_template_string( """
-    <!DOCTYPE html>
-    <html>
+   <!DOCTYPE html>
+        <html>
         <head>
-        {{header|safe}}
+            {{header|safe}}
+            <style>
+       
+        iframe {
+            width: 100%; /* Adjust the width as needed */
+            height: 600px; /* Adjust the height as needed */
+        }
+    
+        script {
+            font-size: 18px; /* Adjust the font size as needed */
+        }
+    </style>
         </head>
         <body>
-            <h3>State of Tennessee Death Penalty Map </h3>
-            <!--Map Size -->
+            <h3>State of Tennessee Death Penalty Map</h3>
+            <!-- Map Size -->
             <div id="map-container" style="width: 80%; height: 800px; margin: 20px auto;">
-            {{body_html|safe}} <!-- Map Render -->
-             </div>
+                {{body_html|safe}}<!-- Map Render -->
+            </div>
             
+            <iframe src="https://cdn.knightlab.com/libs/storyline/latest/embed/index.html?dataURL=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1G18ufdrYjgOHJT76wGzpgD-Qd0w5q8A-aJA-xn4hW5Q%2Fedit%23gid%3D0&dataYCol=executions&dataXCol=year&dataDateFormat=%25Y&chartDateFormat=%25Y&chartYLabel=Executions&sliderCardTitleCol=title&sliderCardTextCol=text"></iframe>
             <script>
-            {{script|safe}}
+                {{script|safe}}
             </script>
         </body>
-    </htm>
+        </html>
+
 
     """, header=header, body_html=body_html, script=script)
 if __name__ == "__main__":
