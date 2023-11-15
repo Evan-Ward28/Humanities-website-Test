@@ -112,7 +112,6 @@ def hello():
             width: 100%; /* Adjust the width as needed */
             height: 600px; /* Adjust the height as needed */
         }
-    
         script {
             font-size: 18px; /* Adjust the font size as needed */
         }
