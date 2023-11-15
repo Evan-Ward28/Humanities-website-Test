@@ -102,34 +102,49 @@ def hello():
 
     #Website render
     return render_template_string( """
-   <!DOCTYPE html>
-        <html>
+    <!DOCTYPE html>
         <head>
-            {{header|safe}}
-            <style>
-       
-        iframe {
-            width: 100%; /* Adjust the width as needed */
-            height: 600px; /* Adjust the height as needed */
-        }
-        script {
-            font-size: 18px; /* Adjust the font size as needed */
-        }
-    </style>
+        {{header|safe}}
+                                  
+         <style>
+            .title-box {
+                width: 450px;
+                display: inline-block;
+                margin-right: 10px;
+                position: absolute; left: 60px; top: 20px;
+            }
+                                  
+            .title {
+                font-family: Impact;
+            }
+                                  
+            .tn-insignia {
+                width: 50px;
+                display: inline block;
+                position: absolute; left: 24px; top: 18px;
+            }
+         </style>
         </head>
         <body>
-            <h3>State of Tennessee Death Penalty Map</h3>
-            <!-- Map Size -->
-            <div id="map-container" style="width: 80%; height: 800px; margin: 20px auto;">
-                {{body_html|safe}}<!-- Map Render -->
-            </div>
             
-            <iframe src="https://cdn.knightlab.com/libs/storyline/latest/embed/index.html?dataURL=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1G18ufdrYjgOHJT76wGzpgD-Qd0w5q8A-aJA-xn4hW5Q%2Fedit%23gid%3D0&dataYCol=executions&dataXCol=year&dataDateFormat=%25Y&chartDateFormat=%25Y&chartYLabel=Executions&sliderCardTitleCol=title&sliderCardTextCol=text"></iframe>
+            <h3 style = "height: 30px;">
+             <div class="title-box">
+                <p class="title">State of Tennessee Death Penalty Map</p>         
+             </div>
+             <div class="tn-insignia"> 
+                <img src="miscImages/tn-insignia1.webp">
+             </div>
+            </h3>  
+            
+            <div id="map-container" style="width: 80%; height: 400px; margin: 20px auto;">
+                {{body_html|safe}} <!-- Map Render -->
+            </div>
             <script>
-                {{script|safe}}
+            {{script|safe}}
             </script>
+
         </body>
-        </html>
+    </htm>
 
 
     """, header=header, body_html=body_html, script=script)
