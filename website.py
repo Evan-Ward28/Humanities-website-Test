@@ -123,6 +123,11 @@ def hello():
                 display: inline block;
                 position: absolute; left: 24px; top: 18px;
             }
+                                  
+            .map-container {
+                display: inline block;
+                position: absolute;
+            }
          </style>
         </head>
         <body>
@@ -132,11 +137,11 @@ def hello():
                 <p class="title">State of Tennessee Death Penalty Map</p>         
              </div>
              <div class="tn-insignia"> 
-                <img src="miscImages/tn-insignia1.webp">
+                <img src="tn-insignia1.webp"> 
              </div>
             </h3>  
             
-            <div id="map-container" style="width: 80%; height: 400px; margin: 20px auto;">
+            <div id="map-container" style="width: 80%; height: 800px; margin: 20px auto;">
                 {{body_html|safe}} <!-- Map Render -->
             </div>
             <script>
