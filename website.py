@@ -2,7 +2,11 @@
 from flask import Flask, render_template_string
 import folium
 import csv
+import numpy as np
+import plotly.express as go
 from folium.plugins import MarkerCluster
+import numpy as np
+from Orange.data import Table, Domain, ContinuousVariable, DiscreteVariable
 
 app = Flask(__name__)
 
@@ -99,6 +103,21 @@ def hello():
     #Java script render
     script =  mapObj.get_root().script.render()
     
+#Graph
+     # Orange Data Table
+    domain = Domain([ContinuousVariable("age"),
+                    ContinuousVariable("height"),
+                    DiscreteVariable("gender", values=("M", "F"))])
+    arr = np.array([
+        [25, 186, 0],
+        [30, 164, 1]
+    ])
+    out_data = Table.from_numpy(domain, arr)
+
+   
+
+    
+
 
     #Website render
     return render_template_string( """
@@ -139,6 +158,12 @@ def hello():
             <div id="map-container" style="width: 80%; height: 400px; margin: 20px auto;">
                 {{body_html|safe}} <!-- Map Render -->
             </div>
+            </h3>  
+
+            <div id="map-container" style="width: 80%; height: 400px; margin: 20px auto;">
+                {{ body_html|safe }} <!-- Map Render -->
+            </div>
+
             <script>
             {{script|safe}}
             </script>
@@ -147,6 +172,8 @@ def hello():
     </htm>
 
 
-    """, header=header, body_html=body_html, script=script)
+""", header=header, body_html=body_html, script=script)
+
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80800,debug=True)
+    app.run(host="0.0.0.0", port=8080, debug=True)
