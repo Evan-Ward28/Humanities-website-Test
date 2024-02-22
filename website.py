@@ -130,7 +130,7 @@ def hello():
                 width: 450px;
                 display: inline-block;
                 margin-right: 10px;
-                position: absolute; left: 60px; top: 20px;
+                position: absolute; left: 60px; top: 28px;
             }
                                   
             .title {
@@ -139,23 +139,31 @@ def hello():
                                   
             .tn-insignia {
                 width: 50px;
-                display: inline block;
-                position: absolute; left: 24px; top: 18px;
+                display: inline-block;
+                position: absolute; left: 24px; top: 26px;
             }
+                                  
+            .map-container {
+            }
+                                  
+            .header-container {
+                
+            }
+
          </style>
         </head>
         <body>
-            
-            <h3 style = "height: 30px;">
+           <div class="header-container">
+            <h3 style = "position: relative; left: 40px; width: 1750px; border-width: 4px; border-style: solid; border-color: grey; height: 75px; margin-bottom: 50px;">
              <div class="title-box">
                 <p class="title">State of Tennessee Death Penalty Map</p>         
              </div>
              <div class="tn-insignia"> 
-                <img src="miscImages/tn-insignia1.webp">
              </div>
             </h3>  
+           </div>
             
-            <div id="map-container" style="width: 80%; height: 400px; margin: 20px auto;">
+            <div id="map-container" style="width: 80%; height: 700px; margin: 20px auto;">
                 {{body_html|safe}} <!-- Map Render -->
             </div>
             </h3>  
@@ -169,7 +177,7 @@ def hello():
             </script>
 
         </body>
-    </htm>
+    </html>
 
 
 """, header=header, body_html=body_html, script=script)
