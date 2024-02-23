@@ -24,10 +24,10 @@ def hello():
             records.append({key: row[key] for key in keys})
     #Unpacking records
     for record in records:
-        coordinates = record['Coordinates']
+        coordinates = record['CoordinatesofBody']
     
         # Check if the 'Coordinates' field contains expected format
-        if "(" in coordinates and ")" in coordinates:
+        if "POINT" in coordinates:
             # Extract the portion within parentheses and then split it into latitude and longitude
             coord_part = coordinates.split("(")[-1].split(')')[0]
             latitude, longitude = coord_part.split()
